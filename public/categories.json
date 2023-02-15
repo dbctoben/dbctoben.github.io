@@ -1,45 +1,38 @@
 {
-    "categories" : [
+  "categories": [
+    {
+      "id": "cat0",
+      "label": "development",
+      "href": "/",
+      "subCategories": [
         {
-            "id": "cat0",
-            "label": "Categories",
-            "href": "/",
-            "subCategories": [
-                {
-                    "id": "cat00",
-                    "label": "Development",
-                    "href": "/",
-                    "fields": [
-                        {
-                            "id": "field000",
-                            "label": "Frontend Development",
-                            "href": "/"
-                        },
-                        {
-                            "id": "field001",
-                            "label": "Backend Development",
-                            "href": "/"
-                        }
-                    ]
-                },
-                {
-                    "id": "cat01",
-                    "label": "Art",
-                    "href": "/",
-                    "fields": [
-                        {
-                            "id": "field010",
-                            "label": "Music",
-                            "href": "/"
-                        },
-                        {
-                            "id": "field011",
-                            "label": "Painting",
-                            "href": "/"
-                        }
-                    ]
-                }
-            ]
+          "id": "field00",
+          "label": "Frontend Development",
+          "href": "/"
+        },
+        {
+          "id": "field01",
+          "label": "Backend Development",
+          "href": "/"
         }
-    ]
+      ]
+    },
+    {
+      "id": "cat1",
+      "label": "art",
+      "href": "/",
+      "subCategories": [
+        {
+          "id": "field10",
+          "label": "Music",
+          "href": "/"
+        },
+        {
+          "id": "field11",
+          "label": "Painting",
+          "href": "/"
+        }
+      ]
+    }
+  ]
 }

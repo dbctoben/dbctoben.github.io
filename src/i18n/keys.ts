@@ -1,11 +1,11 @@
 const keys = {
-
-    categories: 'categories',
-    search: 'search',
-    teach: 'teach',
-    login: 'login',
-    signUp: 'signUp',
-
-}
+  categories: 'categories',
+  search: 'Search something...',
+  teach: 'teach',
+  login: 'login',
+  signUp: 'signUp',
+  development: 'development',
+  art: 'art',
+};
 
 export default keys;

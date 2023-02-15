@@ -1,6 +1,6 @@
 export type Id = {
   id: string;
-}
+};
 
 export type Link = {
   label: string;
@@ -9,24 +9,18 @@ export type Link = {
 
 export type LinkItem = Link & Id;
 
-export type NavBarSubCategory = LinkItem & {
-  fields: Array<LinkItem>;
-};
-
-export type NavBarCategory = LinkItem & {
-  subCategories: NavBarSubCategory[];
-};
-
-export type NavBarProps = {
-  categories: NavBarCategory[];
-};
-
 export type DropDownMenuItem = LinkItem & {
   hasDivider?: boolean;
   subItems?: DropDownMenuItem[];
 };
 
-export type DropDownMenuProps = { items: Array<DropDownMenuItem> };
+export type DropDownMenuProps = {
+  menuTitle: string;
+  items?: Array<DropDownMenuItem>;
+  anchorEl: HTMLElement | null;
+  handleOpenMenu: (event: React.MouseEvent<HTMLElement>) => void;
+  handleCloseMenu: () => void;
+};
 
 export type ImageButtonProps = {
   href: string;
@@ -46,4 +40,8 @@ export type LoginButtonProps = {
 
 export type AppLogoButtonProps = {
   minified?: boolean;
-}
+};
+
+export type Category = LinkItem & {
+  subCategories: Array<LinkItem>;
+};

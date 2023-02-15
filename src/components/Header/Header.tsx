@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { LinkProps, NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import ImageButton from '../ImageButton/ImageButton';
 import { brandImageSrc, mockCategoriesUrl } from '../../consts/consts';
 import DropDownMenu from '../DropDownMenu/DropDownMenu';
 import fetchData from '../../services/fetchData';
-import { DropDownMenuItem } from '../../consts/types';
-import SearchBar from '../Search/Search';
+import { Category, DropDownMenuItem } from '../../consts/types';
+import SearchBar from '../SearchInput/SearchInput';
 
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -21,12 +21,16 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import { Icon } from '@mui/material';
+import { Autocomplete, Icon, Popover, TextField } from '@mui/material';
 import AppLogoButton from '../AppLogoButton/AppLogoButton';
 import { AccountCircle } from '@mui/icons-material';
 import LoginButton from '../LoginButton/LoginButton';
 import { ThemeProvider } from '@mui/material/styles';
 import { noTextTransformButton } from '../../services/themes';
+import mockSearchData from '../../consts/mockSearchData';
+import SearchInput from '../SearchInput/SearchInput';
+import keys from '../../i18n/keys';
+import CategoriesPopover from '../CategoriesPopover/CategoriesPopover';
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -35,22 +39,7 @@ type HeaderProps = {
   links: Array<LinkProps & { label: string }>;
 };
 
-// const Header: React.FC<HeaderProps> = ({ links }) => {
-//   return (
-//     <div className='top-bar'>
-//       <div className='top-bar-left'>
-//         <ImageButton src={brandImageSrc} href='/' className='db-brand-image' imageHeight='50px' imageWidth='50px' />
-//         <DropDownMenu items={categories} />
-//         <SearchBar />
-//       </div>
-
-//       <div className='top-bar-right'></div>
-//     </div>
-//   );
-// };
-
 const Header: React.FC<HeaderProps> = ({ links }) => {
-  const [categories, setCategories] = useState([] as Array<DropDownMenuItem>);
   useEffect(() => {
     fetchData(mockCategoriesUrl).then((data) => {
       console.log('DATA', data);
@@ -61,10 +50,13 @@ const Header: React.FC<HeaderProps> = ({ links }) => {
   }, []);
 
   const { t } = useTranslation();
-
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
-  const [anchorElCategories, setAnchorElCategories] = React.useState<null | HTMLElement>(null);
+  const [categories, setCategories] = useState([] as Array<Category>);
+  const [isCategoryPopoverDisplayed, setIsCategoryPopoverDisplayed] = useState(false);
+  const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+  const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
+  const [anchorElCategories, setAnchorElCategories] = useState<null | HTMLElement>(null);
+const [isInsideCategories, setIsInsideCategories] = useState(false);
+  const appBarRef = useRef(null);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -72,25 +64,26 @@ const Header: React.FC<HeaderProps> = ({ links }) => {
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
   };
-  const handleOpenCategories = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElCategories(event.currentTarget);
-  };
-
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
-
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-  const handleCloseCategoriesMenu = () => {
+  const displayCategories = (event: React.MouseEvent<HTMLElement>) => {
+    setIsCategoryPopoverDisplayed(true);
+    setAnchorElCategories(event.currentTarget);
+  };
+  const hideCategories = (force: boolean) => {
+    if (force || )
+    setIsCategoryPopoverDisplayed(false);
     setAnchorElCategories(null);
   };
 
   return (
-    <AppBar color='transparent' position='static'>
+    <AppBar color='transparent' position='static' ref={appBarRef}>
       <Container maxWidth='xl'>
-        <Toolbar disableGutters sx={{ height: 80}}>
+        <Toolbar disableGutters sx={{ height: 80 }}>
           <Icon sx={{ display: { xs: 'none', md: 'flex' }, width: 'auto', height: 'auto' }}>
             <AppLogoButton />
           </Icon>
@@ -132,40 +125,46 @@ const Header: React.FC<HeaderProps> = ({ links }) => {
             </Menu>
           </Box>
 
-          <Icon sx={{ flexGrow: 1, alignSelf: 'center', display: { xs: 'flex', md: 'none' }, width: 'auto', height: 'auto' }}>
-            <AppLogoButton minified={true}/>
+          <Icon
+            sx={{
+              flexGrow: 1,
+              alignSelf: 'center',
+              display: { xs: 'flex', md: 'none' },
+              width: 'auto',
+              height: 'auto',
+            }}
+          >
+            <AppLogoButton minified={true} />
           </Icon>
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
-            <ThemeProvider theme={noTextTransformButton}>
-              <Button
-                id='db-categories-button'
-                aria-controls={Boolean(anchorElCategories) ? 'basic-menu' : undefined}
-                aria-haspopup='true'
-                aria-expanded={Boolean(anchorElCategories) ? 'true' : undefined}
-                onClick={handleOpenCategories}
-              >
-                {t('categories')}
-              </Button>
-            </ThemeProvider>
-            <Menu
-              id='basic-menu'
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, height: '100%' }} onMouseLeave={() => hideCategories(false)}>
+            <Button onMouseEnter={displayCategories}>{t(keys.categories)}</Button>
+            <Popover
+              open={isCategoryPopoverDisplayed}
               anchorEl={anchorElCategories}
-              open={Boolean(anchorElCategories)}
-              onClose={handleCloseCategoriesMenu}
-              MenuListProps={{
-                'aria-labelledby': 'basic-button',
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'left',
               }}
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'left',
+              }}
+              sx={{ mt: '3px' }}
+              disableRestoreFocus
+              onMouseLeave={() => hideCategories(true)}
             >
-              <MenuItem onClick={handleCloseCategoriesMenu}>Profile</MenuItem>
-              <MenuItem onClick={handleCloseCategoriesMenu}>My account</MenuItem>
-              <MenuItem onClick={handleCloseCategoriesMenu}>Logout</MenuItem>
-            </Menu>
-            {/* {pages.map((page) => (
-              <Button key={page} onClick={handleCloseNavMenu} sx={{ my: 2, color: 'white', display: 'block' }}>
-                {page}
-              </Button>
-            ))} */}
+              <CategoriesPopover categories={categories} />
+            </Popover>
+
+            {/* <DropDownMenu
+              menuTitle={keys.categories}
+              items={categories[0] ? categories[0].subItems : []}
+              handleCloseMenu={handleCloseCategoriesMenu}
+              handleOpenMenu={handleOpenCategoriesMenu}
+              anchorEl={anchorElCategories}
+            /> */}
+            <SearchInput />
           </Box>
 
           <LoginButton
