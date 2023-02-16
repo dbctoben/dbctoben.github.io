@@ -1,13 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { LinkProps, NavLink } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import ImageButton from '../ImageButton/ImageButton';
-import { brandImageSrc, mockCategoriesUrl } from '../../consts/consts';
-import DropDownMenu from '../DropDownMenu/DropDownMenu';
+import { LinkProps } from 'react-router-dom';
+import { mockCategoriesUrl } from '../../consts/consts';
 import fetchData from '../../services/fetchData';
-import { Category, DropDownMenuItem } from '../../consts/types';
-import SearchBar from '../SearchInput/SearchInput';
-
+import { Category } from '../../consts/types';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -16,21 +11,12 @@ import Typography from '@mui/material/Typography';
 import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
-import { Autocomplete, Icon, Popover, TextField } from '@mui/material';
+import { Icon } from '@mui/material';
 import AppLogoButton from '../AppLogoButton/AppLogoButton';
-import { AccountCircle } from '@mui/icons-material';
 import LoginButton from '../LoginButton/LoginButton';
-import { ThemeProvider } from '@mui/material/styles';
-import { noTextTransformButton } from '../../services/themes';
-import mockSearchData from '../../consts/mockSearchData';
 import SearchInput from '../SearchInput/SearchInput';
-import keys from '../../i18n/keys';
-import CategoriesPopover from '../CategoriesPopover/CategoriesPopover';
+import Categories from '../Categories/Categories';
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -39,7 +25,7 @@ type HeaderProps = {
   links: Array<LinkProps & { label: string }>;
 };
 
-const Header: React.FC<HeaderProps> = ({ links }) => {
+const Header: React.FC<HeaderProps> = () => {
   useEffect(() => {
     fetchData(mockCategoriesUrl).then((data) => {
       console.log('DATA', data);
@@ -49,14 +35,11 @@ const Header: React.FC<HeaderProps> = ({ links }) => {
     });
   }, []);
 
-  const { t } = useTranslation();
   const [categories, setCategories] = useState([] as Array<Category>);
-  const [isCategoryPopoverDisplayed, setIsCategoryPopoverDisplayed] = useState(false);
+  const [categoriesDisplayed, setCategoriesDisplayed] = useState(false);
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
-  const [anchorElCategories, setAnchorElCategories] = useState<null | HTMLElement>(null);
-const [isInsideCategories, setIsInsideCategories] = useState(false);
-  const appBarRef = useRef(null);
+  const headerRef = useRef(null);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -70,24 +53,16 @@ const [isInsideCategories, setIsInsideCategories] = useState(false);
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-  const displayCategories = (event: React.MouseEvent<HTMLElement>) => {
-    setIsCategoryPopoverDisplayed(true);
-    setAnchorElCategories(event.currentTarget);
-  };
-  const hideCategories = (force: boolean) => {
-    if (force || )
-    setIsCategoryPopoverDisplayed(false);
-    setAnchorElCategories(null);
-  };
 
   return (
-    <AppBar color='transparent' position='static' ref={appBarRef}>
+    <AppBar color='transparent' position='static' ref={headerRef}>
       <Container maxWidth='xl'>
         <Toolbar disableGutters sx={{ height: 80 }}>
           <Icon sx={{ display: { xs: 'none', md: 'flex' }, width: 'auto', height: 'auto' }}>
             <AppLogoButton />
           </Icon>
 
+          {/* Displays on small screen */}
           <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size='large'
@@ -136,34 +111,16 @@ const [isInsideCategories, setIsInsideCategories] = useState(false);
           >
             <AppLogoButton minified={true} />
           </Icon>
+          {/* ------------------------- */}
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, height: '100%' }} onMouseLeave={() => hideCategories(false)}>
-            <Button onMouseEnter={displayCategories}>{t(keys.categories)}</Button>
-            <Popover
-              open={isCategoryPopoverDisplayed}
-              anchorEl={anchorElCategories}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              sx={{ mt: '3px' }}
-              disableRestoreFocus
-              onMouseLeave={() => hideCategories(true)}
-            >
-              <CategoriesPopover categories={categories} />
-            </Popover>
-
-            {/* <DropDownMenu
-              menuTitle={keys.categories}
-              items={categories[0] ? categories[0].subItems : []}
-              handleCloseMenu={handleCloseCategoriesMenu}
-              handleOpenMenu={handleOpenCategoriesMenu}
-              anchorEl={anchorElCategories}
-            /> */}
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, height: '100%' }}>
+            <Categories
+              categories={categories}
+              categoriesDisplayed={categoriesDisplayed}
+              portalRef={headerRef}
+              closeCategories={() => setCategoriesDisplayed(false)}
+              toggleCategories={() => setCategoriesDisplayed((prev) => !prev)}
+            />
             <SearchInput />
           </Box>
 

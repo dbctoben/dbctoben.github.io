@@ -1,3 +1,5 @@
+import { MutableRefObject } from "react";
+
 export type Id = {
   id: string;
 };
@@ -44,4 +46,16 @@ export type AppLogoButtonProps = {
 
 export type Category = LinkItem & {
   subCategories: Array<LinkItem>;
+};
+
+export type CategoryPopoverProps = {
+  categories: Array<Category>;
+};
+
+export type CategoriesProps = {
+  categories: Array<Category>;
+  categoriesDisplayed: boolean;
+  portalRef: MutableRefObject<null>;
+  closeCategories: () => void;
+  toggleCategories: (event: React.MouseEvent<HTMLElement>) => void;
 };
