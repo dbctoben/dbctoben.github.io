@@ -12,11 +12,12 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import MenuItem from '@mui/material/MenuItem';
-import { Icon } from '@mui/material';
+import { Icon, ThemeProvider } from '@mui/material';
 import AppLogoButton from '../AppLogoButton/AppLogoButton';
 import LoginButton from '../LoginButton/LoginButton';
 import SearchInput from '../SearchInput/SearchInput';
 import Categories from '../Categories/Categories';
+import { noTextTransformButton } from '../../services/themes';
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -56,6 +57,7 @@ const Header: React.FC<HeaderProps> = () => {
 
   return (
     <AppBar color='transparent' position='static' ref={headerRef}>
+      <ThemeProvider theme={noTextTransformButton}>
       <Container maxWidth='xl'>
         <Toolbar disableGutters sx={{ height: 80 }}>
           <Icon sx={{ display: { xs: 'none', md: 'flex' }, width: 'auto', height: 'auto' }}>
@@ -132,6 +134,7 @@ const Header: React.FC<HeaderProps> = () => {
           />
         </Toolbar>
       </Container>
+      </ThemeProvider>
     </AppBar>
   );
 };
