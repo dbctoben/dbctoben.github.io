@@ -17,18 +17,25 @@ const CategoriesPopover: React.FC<CategoryPopoverProps> = ({ categories }) => {
         height: '-webkit-fill-available',
         width: 'fit-content',
         backgroundColor: 'white',
+        display: { xs: 'none', md: 'flex' },
       }}
     >
-      <Box>
+      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         {categories.map((category) => (
-          <Button key={`${categoryButtonIdPrefix}${category.id}`} onMouseEnter={() => setSelectedCategory(category)}>
+          <Button
+            sx={{ justifyContent: 'flex-start' }}
+            key={`${categoryButtonIdPrefix}${category.id}`}
+            onMouseEnter={() => setSelectedCategory(category)}
+          >
             {t(category.label)}
           </Button>
         ))}
       </Box>
-      <Box>
+      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         {selectedCategory.subCategories.map((category) => (
-          <Button key={`${categoryButtonIdPrefix}${category.id}`}>{t(category.label)}</Button>
+          <Button sx={{ justifyContent: 'flex-start' }} key={`${categoryButtonIdPrefix}${category.id}`}>
+            {t(category.label)}
+          </Button>
         ))}
       </Box>
     </Box>
