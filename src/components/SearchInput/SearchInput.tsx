@@ -8,7 +8,7 @@ const SearchInput: React.FC = () => (
     freeSolo
     id='db-search-input'
     disableClearable
-    sx={{ flexGrow: 1, maxWidth: 300, display: 'flex', alignItems: 'center' }}
+    sx={{ flexGrow: 1,  display: 'flex', alignItems: 'center', ml: '20px' }}
     options={mockSearchData.map((option) => option.label)}
     renderInput={(params) => (
       <TextField

@@ -14,6 +14,26 @@
           "id": "field01",
           "label": "Backend Development",
           "href": "/"
+        },
+        {
+          "id": "field02",
+          "label": "Machine Learning",
+          "href": "/"
+        },
+        {
+          "id": "field03",
+          "label": "Mobile",
+          "href": "/"
+        },
+        {
+          "id": "field04",
+          "label": "DevOps",
+          "href": "/"
+        },
+        {
+          "id": "field05",
+          "label": "NLP",
+          "href": "/"
         }
       ]
     },
@@ -29,6 +49,26 @@
         },
         {
           "id": "field11",
+          "label": "Painting",
+          "href": "/"
+        },
+        {
+          "id": "field12",
+          "label": "Guitar",
+          "href": "/"
+        },
+        {
+          "id": "field13",
+          "label": "Sculpt",
+          "href": "/"
+        },
+        {
+          "id": "field14",
+          "label": "Design",
+          "href": "/"
+        },
+        {
+          "id": "field15",
           "label": "Painting",
           "href": "/"
         }

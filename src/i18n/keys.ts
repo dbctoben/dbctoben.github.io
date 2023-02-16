@@ -6,6 +6,7 @@ const keys = {
   signUp: 'signUp',
   development: 'development',
   art: 'art',
+  createACourse: 'createACourse'
 };
 
 export default keys;

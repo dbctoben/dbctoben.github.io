@@ -12,12 +12,16 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import MenuItem from '@mui/material/MenuItem';
-import { Icon, ThemeProvider } from '@mui/material';
+import { Button, Icon, ThemeProvider } from '@mui/material';
 import AppLogoButton from '../AppLogoButton/AppLogoButton';
 import LoginButton from '../LoginButton/LoginButton';
 import SearchInput from '../SearchInput/SearchInput';
 import Categories from '../Categories/Categories';
 import { noTextTransformButton } from '../../services/themes';
+import LanguageIcon from '@mui/icons-material/Language';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { useTranslation } from 'react-i18next';
+import keys from '../../i18n/keys';
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -42,6 +46,8 @@ const Header: React.FC<HeaderProps> = () => {
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
   const headerRef = useRef(null);
 
+  const { t } = useTranslation();
+
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -58,82 +64,94 @@ const Header: React.FC<HeaderProps> = () => {
   return (
     <AppBar color='transparent' position='static' ref={headerRef}>
       <ThemeProvider theme={noTextTransformButton}>
-      <Container maxWidth='xl'>
-        <Toolbar disableGutters sx={{ height: 80 }}>
-          <Icon sx={{ display: { xs: 'none', md: 'flex' }, width: 'auto', height: 'auto' }}>
-            <AppLogoButton />
-          </Icon>
+        <Container maxWidth='xl'>
+          <Toolbar disableGutters sx={{ height: 80 }}>
+            {/* Displays on large screen */}
+            <Icon sx={{ display: { xs: 'none', md: 'flex' }, width: 'auto', height: 'auto' }}>
+              <AppLogoButton />
+            </Icon>
 
-          {/* Displays on small screen */}
-          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size='large'
-              aria-label='account of current user'
-              aria-controls='menu-appbar'
-              aria-haspopup='true'
-              onClick={handleOpenNavMenu}
-              color='inherit'
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id='menu-appbar'
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
+            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, height: '100%' }}>
+              <Categories
+                categories={categories}
+                categoriesDisplayed={categoriesDisplayed}
+                portalRef={headerRef}
+                closeCategories={() => setCategoriesDisplayed(false)}
+                toggleCategories={() => setCategoriesDisplayed((prev) => !prev)}
+              />
+              <SearchInput />
+              <Box sx={{ flexDirection: 'row', display: 'flex', justifyContent: 'end', flexGrow: 1 }}>
+                <Box sx={{ display: 'flex', mr: '40px' }}>
+                  <Button>{t(keys.createACourse)}</Button>
+                </Box>
+                <IconButton sx={{ alignSelf: 'center', mr: '20px' }}>
+                  <ShoppingCartIcon />
+                </IconButton>
+                <LoginButton
+                  anchorElUser={anchorElUser}
+                  settings={settings}
+                  handleOpenUserMenu={handleOpenUserMenu}
+                  handleCloseUserMenu={handleCloseUserMenu}
+                />
+                <IconButton sx={{ alignSelf: 'center' }}>
+                  <LanguageIcon />
+                </IconButton>
+              </Box>
+            </Box>
+            {/* ------------------------- */}
+
+            {/* Displays on small screen */}
+            <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+              <IconButton
+                size='large'
+                aria-label='account of current user'
+                aria-controls='menu-appbar'
+                aria-haspopup='true'
+                onClick={handleOpenNavMenu}
+                color='inherit'
+              >
+                <MenuIcon />
+              </IconButton>
+              <Menu
+                id='menu-appbar'
+                anchorEl={anchorElNav}
+                anchorOrigin={{
+                  vertical: 'bottom',
+                  horizontal: 'left',
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'left',
+                }}
+                open={Boolean(anchorElNav)}
+                onClose={handleCloseNavMenu}
+                sx={{
+                  display: { xs: 'block', md: 'none' },
+                }}
+              >
+                {pages.map((page) => (
+                  <MenuItem key={page} onClick={handleCloseNavMenu}>
+                    <Typography textAlign='center'>{page}</Typography>
+                  </MenuItem>
+                ))}
+              </Menu>
+            </Box>
+
+            <Icon
               sx={{
-                display: { xs: 'block', md: 'none' },
+                flexGrow: 1,
+                alignSelf: 'center',
+                display: { xs: 'flex', md: 'none' },
+                width: 'auto',
+                height: 'auto',
               }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign='center'>{page}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-
-          <Icon
-            sx={{
-              flexGrow: 1,
-              alignSelf: 'center',
-              display: { xs: 'flex', md: 'none' },
-              width: 'auto',
-              height: 'auto',
-            }}
-          >
-            <AppLogoButton minified={true} />
-          </Icon>
-          {/* ------------------------- */}
-
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, height: '100%' }}>
-            <Categories
-              categories={categories}
-              categoriesDisplayed={categoriesDisplayed}
-              portalRef={headerRef}
-              closeCategories={() => setCategoriesDisplayed(false)}
-              toggleCategories={() => setCategoriesDisplayed((prev) => !prev)}
-            />
-            <SearchInput />
-          </Box>
-
-          <LoginButton
-            anchorElUser={anchorElUser}
-            settings={settings}
-            handleOpenUserMenu={handleOpenUserMenu}
-            handleCloseUserMenu={handleCloseUserMenu}
-          />
-        </Toolbar>
-      </Container>
+              <AppLogoButton minified={true} />
+            </Icon>
+            {/* ------------------------- */}
+          </Toolbar>
+        </Container>
       </ThemeProvider>
     </AppBar>
   );

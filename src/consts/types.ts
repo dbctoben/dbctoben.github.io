@@ -26,14 +26,22 @@ export type DropDownMenuProps = {
 
 export type ImageButtonProps = {
   href: string;
-  className: string;
+  className?: string;
   src: string;
   alt?: string;
   imageWidth: string;
   imageHeight: string;
+  onClick?: (event: React.MouseEvent<HTMLElement>) => void;
 };
 
 export type LoginButtonProps = {
+  anchorElUser: HTMLElement | null;
+  settings: Array<string>;
+  handleOpenUserMenu: (event: React.MouseEvent<HTMLElement>) => void;
+  handleCloseUserMenu: () => void;
+};
+
+export type MenuButtonProps = {
   anchorElUser: HTMLElement | null;
   settings: Array<string>;
   handleOpenUserMenu: (event: React.MouseEvent<HTMLElement>) => void;

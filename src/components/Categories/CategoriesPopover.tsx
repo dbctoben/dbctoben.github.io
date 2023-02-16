@@ -1,8 +1,9 @@
-import { Box, Button } from '@mui/material';
+import { Box, Button, IconButton } from '@mui/material';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { categoryButtonIdPrefix } from '../../consts/consts';
 import { CategoryPopoverProps } from '../../consts/types';
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 const CategoriesPopover: React.FC<CategoryPopoverProps> = ({ categories }) => {
   const { t } = useTranslation();
@@ -17,21 +18,27 @@ const CategoriesPopover: React.FC<CategoryPopoverProps> = ({ categories }) => {
         height: '-webkit-fill-available',
         width: 'fit-content',
         backgroundColor: 'white',
+        marginBottom: '20px',
         display: { xs: 'none', md: 'flex' },
+        border: '#b2b2b2 1px solid',
+        boxShadow: '-1px 1px 1px #cecece',
       }}
     >
-      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column', borderRight: '#b2b2b2 1px solid', minWidth: '250px' }}>
         {categories.map((category) => (
           <Button
-            sx={{ justifyContent: 'flex-start' }}
+            sx={{ justifyContent: 'space-between' }}
             key={`${categoryButtonIdPrefix}${category.id}`}
             onMouseEnter={() => setSelectedCategory(category)}
           >
             {t(category.label)}
+            <IconButton sx={{ padding: 'unset' }}>
+              <KeyboardArrowRightIcon />
+            </IconButton>
           </Button>
         ))}
       </Box>
-      <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column', minWidth: '250px' }}>
         {selectedCategory.subCategories.map((category) => (
           <Button sx={{ justifyContent: 'flex-start' }} key={`${categoryButtonIdPrefix}${category.id}`}>
             {t(category.label)}

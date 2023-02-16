@@ -1,9 +1,9 @@
 import { Person } from '@mui/icons-material';
 import { Box, Tooltip, IconButton, Avatar, Menu, MenuItem, Typography } from '@mui/material';
 import React from 'react';
-import { LoginButtonProps } from '../../consts/types';
+import { MenuButtonProps } from '../../consts/types';
 
-const LoginButton: React.FC<LoginButtonProps> = ({
+const MenuButton: React.FC<MenuButtonProps> = ({
   anchorElUser,
   settings,
   handleOpenUserMenu,
@@ -44,4 +44,4 @@ const LoginButton: React.FC<LoginButtonProps> = ({
   );
 };
 
-export default LoginButton;
+export default MenuButton;
