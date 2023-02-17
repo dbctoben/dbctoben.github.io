@@ -6,6 +6,8 @@ import Footer from './components/Footer/Footer';
 import HomePage from './components/HomePage/HomePage';
 import AboutPage from './components/AboutPage/AboutPage';
 import ErrorPage from './components/ErrorPage/ErrorPage';
+import { ThemeProvider } from '@mui/material';
+import { noTextTransformButton } from './services/themes';
 
 function App() {
   const links = [
@@ -15,15 +17,17 @@ function App() {
   ];
 
   return (
-    <BrowserRouter>
-      <Header links={links} />
-      <Routes>
-        <Route path='/' index element={<HomePage />} />
-        <Route path='about' element={<AboutPage />} />
-        <Route path='*' element={<ErrorPage />} />
-      </Routes>
-      <Footer />
-    </BrowserRouter>
+    <ThemeProvider theme={noTextTransformButton}>
+      <BrowserRouter>
+        <Header links={links} />
+        <Routes>
+          <Route path='/' index element={<HomePage />} />
+          <Route path='about' element={<AboutPage />} />
+          <Route path='*' element={<ErrorPage />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 

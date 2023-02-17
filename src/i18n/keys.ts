@@ -6,7 +6,9 @@ const keys = {
   signUp: 'signUp',
   development: 'development',
   art: 'art',
-  createACourse: 'createACourse'
+  createACourse: 'createACourse',
+  homePageGreeting: 'homePageGreeting',
+  homePageButton: 'homePageButton'
 };
 
 export default keys;
