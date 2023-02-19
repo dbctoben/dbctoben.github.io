@@ -7,6 +7,7 @@
     "development": "Development",
     "art": "Art",
     "createACourse": "Create a Course",
-    "homePageGreeting": "The place for self growth",
+    "homePageGreetingTitle": "The place for self growth",
+    "homePageGreetingContent": "Learn anything, anywhere, anytime.",
     "homePageButton": "Get started"
 }

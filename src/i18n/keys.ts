@@ -7,7 +7,8 @@ const keys = {
   development: 'development',
   art: 'art',
   createACourse: 'createACourse',
-  homePageGreeting: 'homePageGreeting',
+  homePageGreetingTitle: 'homePageGreetingTitle',
+  homePageGreetingContent: 'homePageGreetingContent',
   homePageButton: 'homePageButton'
 };
 
