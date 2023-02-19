@@ -9,7 +9,8 @@ const keys = {
   createACourse: 'createACourse',
   homePageGreetingTitle: 'homePageGreetingTitle',
   homePageGreetingContent: 'homePageGreetingContent',
-  homePageButton: 'homePageButton'
+  homePageButton: 'homePageButton',
+  changeLanguage: 'changeLanguage'
 };
 
 export default keys;

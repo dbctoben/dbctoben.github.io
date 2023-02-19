@@ -1,7 +1,7 @@
 import { Box, Button, IconButton } from '@mui/material';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { categoryButtonIdPrefix } from '../../consts/consts';
+import { categoryButtonIdPrefix, zIndex } from '../../consts/consts';
 import { CategoryPopoverProps } from '../../consts/types';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
@@ -22,6 +22,7 @@ const CategoriesPopover: React.FC<CategoryPopoverProps> = ({ categories }) => {
         display: { xs: 'none', md: 'flex' },
         border: '#b2b2b2 1px solid',
         boxShadow: '-1px 1px 1px #cecece',
+        zIndex: zIndex.popover,
       }}
     >
       <Box sx={{ display: 'flex', flexDirection: 'column', borderRight: '#b2b2b2 1px solid', minWidth: '250px' }}>

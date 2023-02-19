@@ -18,10 +18,10 @@ import LoginButton from '../LoginButton/LoginButton';
 import SearchInput from '../SearchInput/SearchInput';
 import Categories from '../Categories/Categories';
 import { noTextTransformButton } from '../../services/themes';
-import LanguageIcon from '@mui/icons-material/Language';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useTranslation } from 'react-i18next';
 import keys from '../../i18n/keys';
+import LanguageButton from '../LanguageButton/LanguageButton';
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -44,6 +44,7 @@ const Header: React.FC<HeaderProps> = () => {
   const [categoriesDisplayed, setCategoriesDisplayed] = useState(false);
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
+
   const headerRef = useRef(null);
 
   const { t } = useTranslation();
@@ -93,9 +94,7 @@ const Header: React.FC<HeaderProps> = () => {
                   handleOpenUserMenu={handleOpenUserMenu}
                   handleCloseUserMenu={handleCloseUserMenu}
                 />
-                <IconButton sx={{ alignSelf: 'center' }}>
-                  <LanguageIcon />
-                </IconButton>
+                <LanguageButton />
               </Box>
             </Box>
             {/* ------------------------- */}

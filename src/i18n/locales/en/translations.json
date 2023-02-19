@@ -9,5 +9,6 @@
     "createACourse": "Create a Course",
     "homePageGreetingTitle": "The place for self growth",
     "homePageGreetingContent": "Learn anything, anywhere, anytime.",
-    "homePageButton": "Get started"
+    "homePageButton": "Get started",
+    "changeLanguage": "Change Language"
 }
