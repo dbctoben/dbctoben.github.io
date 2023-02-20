@@ -10,7 +10,8 @@ const keys = {
   homePageGreetingTitle: 'homePageGreetingTitle',
   homePageGreetingContent: 'homePageGreetingContent',
   homePageButton: 'homePageButton',
-  changeLanguage: 'changeLanguage'
+  changeLanguage: 'changeLanguage',
+  loginButtonTooltip: 'loginButtonTooltip'
 };
 
 export default keys;

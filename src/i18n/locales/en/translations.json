@@ -10,5 +10,6 @@
     "homePageGreetingTitle": "The place for self growth",
     "homePageGreetingContent": "Learn anything, anywhere, anytime.",
     "homePageButton": "Get started",
-    "changeLanguage": "Change Language"
+    "changeLanguage": "Change Language",
+    "loginButtonTooltip": "User Settings"
 }

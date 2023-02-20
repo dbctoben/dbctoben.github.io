@@ -1,7 +1,9 @@
 import { Person } from '@mui/icons-material';
 import { Box, Tooltip, IconButton, Avatar, Menu, MenuItem, Typography } from '@mui/material';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { LoginButtonProps } from '../../@types/types';
+import keys from '../../i18n/keys';
 
 const LoginButton: React.FC<LoginButtonProps> = ({
   anchorElUser,
@@ -9,9 +11,10 @@ const LoginButton: React.FC<LoginButtonProps> = ({
   handleOpenUserMenu,
   handleCloseUserMenu,
 }) => {
+  const { t } = useTranslation();
   return (
     <Box sx={{ flexGrow: 0, alignSelf: 'center', mr: '20px' }}>
-      <Tooltip title='Open settings'>
+      <Tooltip title={t(keys.loginButtonTooltip)}>
         <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
           <Avatar alt='User'>
             <Person />
