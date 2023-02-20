@@ -7,11 +7,10 @@ import keys from '../../i18n/keys';
 
 const LanguageButton: React.FC = () => {
   const [anchorElLanguage, setAnchorElLanguage] = useState<null | HTMLElement>(null);
-
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const onChangeLanguage = (event: React.MouseEvent<HTMLElement>) => {
-    console.log('LANG:', event.currentTarget.innerText);
+    i18n.changeLanguage(event.currentTarget.innerText);
     setAnchorElLanguage(null);
   };
 

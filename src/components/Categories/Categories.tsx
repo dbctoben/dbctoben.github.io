@@ -2,7 +2,7 @@ import { ClickAwayListener, Box, Button } from '@mui/material';
 import { t } from 'i18next';
 import React from 'react';
 import { createPortal } from 'react-dom';
-import { CategoriesProps } from '../../consts/types';
+import { CategoriesProps } from '../../@types/types';
 import keys from '../../i18n/keys';
 import CategoriesPopover from './CategoriesPopover';
 

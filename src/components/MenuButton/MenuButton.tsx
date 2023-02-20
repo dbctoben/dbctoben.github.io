@@ -1,14 +1,9 @@
 import { Person } from '@mui/icons-material';
 import { Box, Tooltip, IconButton, Avatar, Menu, MenuItem, Typography } from '@mui/material';
 import React from 'react';
-import { MenuButtonProps } from '../../consts/types';
+import { MenuButtonProps } from '../../@types/types';
 
-const MenuButton: React.FC<MenuButtonProps> = ({
-  anchorElUser,
-  settings,
-  handleOpenUserMenu,
-  handleCloseUserMenu,
-}) => {
+const MenuButton: React.FC<MenuButtonProps> = ({ anchorElUser, settings, handleOpenUserMenu, handleCloseUserMenu }) => {
   return (
     <Box sx={{ flexGrow: 0, alignSelf: 'center', mr: '20px' }}>
       <Tooltip title='Open settings'>

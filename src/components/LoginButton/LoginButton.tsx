@@ -1,7 +1,7 @@
 import { Person } from '@mui/icons-material';
 import { Box, Tooltip, IconButton, Avatar, Menu, MenuItem, Typography } from '@mui/material';
 import React from 'react';
-import { LoginButtonProps } from '../../consts/types';
+import { LoginButtonProps } from '../../@types/types';
 
 const LoginButton: React.FC<LoginButtonProps> = ({
   anchorElUser,

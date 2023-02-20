@@ -16,6 +16,6 @@ i18n.use(initReactI18next).init({
   defaultNS: 'translations'
 });
 
-i18n.languages = ['en', 'es'];
+i18n.languages = ['en', 'he'];
 
 export default i18n;

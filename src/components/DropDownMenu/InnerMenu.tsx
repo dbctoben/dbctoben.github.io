@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { DropDownMenuItem } from '../../consts/types';
+import { DropDownMenuItem } from '../../@types/types';
 
 type InnerMenuProps = { items: DropDownMenuItem[] };
 

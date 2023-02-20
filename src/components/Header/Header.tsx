@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { LinkProps } from 'react-router-dom';
 import { mockCategoriesUrl } from '../../consts/consts';
 import fetchData from '../../services/fetchData';
-import { Category } from '../../consts/types';
+import { Category } from '../../@types/types';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';

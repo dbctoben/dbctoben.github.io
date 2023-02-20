@@ -2,7 +2,7 @@ import { Box, Button, IconButton } from '@mui/material';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { categoryButtonIdPrefix, zIndex } from '../../consts/consts';
-import { CategoryPopoverProps } from '../../consts/types';
+import { CategoryPopoverProps } from '../../@types/types';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 const CategoriesPopover: React.FC<CategoryPopoverProps> = ({ categories }) => {

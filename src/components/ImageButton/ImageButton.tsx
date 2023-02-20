@@ -1,5 +1,5 @@
 import React from 'react';
-import { ImageButtonProps } from '../../consts/types';
+import { ImageButtonProps } from '../../@types/types';
 
 const ImageButton: React.FC<ImageButtonProps> = ({ href, className, src, imageWidth, imageHeight, alt, onClick }) => {
   return (

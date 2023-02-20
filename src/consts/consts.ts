@@ -7,6 +7,6 @@ export const zIndex = {
   modal: 3,
 };
 export enum Language {
-    EN = 'EN',
-    HE = 'HE'
+    en = 'en',
+    he = 'he'
 }

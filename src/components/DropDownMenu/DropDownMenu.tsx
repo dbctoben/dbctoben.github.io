@@ -2,7 +2,7 @@ import { ThemeProvider } from '@emotion/react';
 import { Button, Menu, MenuItem } from '@mui/material';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { DropDownMenuProps } from '../../consts/types';
+import { DropDownMenuProps } from '../../@types/types';
 import { noTextTransformButton } from '../../services/themes';
 
 const DropDownMenu: React.FC<DropDownMenuProps> = ({ menuTitle, items, anchorEl, handleOpenMenu, handleCloseMenu }) => {

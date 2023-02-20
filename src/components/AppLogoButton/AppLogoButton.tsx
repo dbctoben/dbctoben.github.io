@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppLogoButtonProps } from '../../consts/types';
+import { AppLogoButtonProps } from '../../@types/types';
 
 const AppLogoButton: React.FC<AppLogoButtonProps> = ({ minified }) => {
   const src = 'clickClassLogoSmall.png';

@@ -8,6 +8,7 @@ import AboutPage from './components/AboutPage/AboutPage';
 import ErrorPage from './components/ErrorPage/ErrorPage';
 import { ThemeProvider } from '@mui/material';
 import { noTextTransformButton } from './services/themes';
+import { useTranslation } from 'react-i18next';
 
 function App() {
   const links = [
@@ -15,6 +16,10 @@ function App() {
     { to: 'about', label: 'About' },
     { to: 'error', label: 'Error' },
   ];
+
+  const { i18n } = useTranslation();
+
+  document.body.dir = i18n.dir();
 
   return (
     <ThemeProvider theme={noTextTransformButton}>
