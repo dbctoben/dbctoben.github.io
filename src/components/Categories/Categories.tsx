@@ -16,7 +16,7 @@ const Categories: React.FC<CategoriesProps> = ({
   return (
     <ClickAwayListener onClickAway={closeCategories}>
       <Box sx={{ display: 'flex', ml: '20px' }}>
-        <Button onClick={toggleCategories}>{t(keys.categories)}</Button>
+        <Button sx={{ margin: '0 10px'}} onClick={toggleCategories}>{t(keys.categories)}</Button>
         {categoriesDisplayed && portalRef?.current
           ? createPortal(<CategoriesPopover categories={categories} />, portalRef.current)
           : null}
