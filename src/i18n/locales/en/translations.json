@@ -16,5 +16,9 @@
     "courseLevelMid": "Mid Level",
     "courseLevelPro": "Pro Level",
     "courseLevelAll": "All Levels",
-    "searchResultsTitle": "results found for"
+    "searchResultsTitle": "results found for",
+    "mostRelevant": "Most Relevant",
+    "mostReviewed": "Most Reviewed",
+    "highestRated": "Highest Rated",
+    "newest": "Newest"
 }

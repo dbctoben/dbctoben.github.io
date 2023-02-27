@@ -16,7 +16,11 @@ const keys = {
   courseLevelMid: 'courseLevelMid',
   courseLevelPro: 'courseLevelPro',
   courseLevelAll: 'courseLevelAll',
-  searchResultsTitle: 'searchResultsTitle'
+  searchResultsTitle: 'searchResultsTitle',
+  mostRelevant: 'mostRelevant',
+  mostReviewed: 'mostReviewed',
+  highestRated: 'highestRated',
+  newest: 'newest'
 };
 
 export default keys;
