@@ -66,3 +66,28 @@ export type CategoriesProps = {
   handleOpenCategories: (event: React.MouseEvent<HTMLElement>) => void;
   handleCloseCategories: () => void;
 };
+
+
+export enum COURSE_LEVEL {
+  ENTRY,
+  MID,
+  PRO,
+  ALL,
+}
+
+export type SearchResult = {
+  imageSrc: string;
+  title: string;
+  description: string;
+  author: string;
+  rating: number;
+  ratedBy: number;
+  totalHours: number;
+  numOfVideos: number;
+  level: COURSE_LEVEL;
+  numOfExcercises?: number;
+  numOfTests?: number;
+  authorizedCertificate?: boolean;
+};
+
+export type SearchResultsPageProps = { results: Array<SearchResult>, term: string };

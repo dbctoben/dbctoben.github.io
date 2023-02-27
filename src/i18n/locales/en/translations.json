@@ -11,5 +11,10 @@
     "homePageGreetingContent": "Learn anything, anywhere, anytime.",
     "homePageButton": "Get started",
     "changeLanguage": "Change Language",
-    "loginButtonTooltip": "User Settings"
+    "loginButtonTooltip": "User Settings",
+    "courseLevelEntry": "Entry Level",
+    "courseLevelMid": "Mid Level",
+    "courseLevelPro": "Pro Level",
+    "courseLevelAll": "All Levels",
+    "searchResultsTitle": "results found for"
 }

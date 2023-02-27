@@ -11,7 +11,12 @@ const keys = {
   homePageGreetingContent: 'homePageGreetingContent',
   homePageButton: 'homePageButton',
   changeLanguage: 'changeLanguage',
-  loginButtonTooltip: 'loginButtonTooltip'
+  loginButtonTooltip: 'loginButtonTooltip',
+  courseLevelEntry: 'courseLevelEntry',
+  courseLevelMid: 'courseLevelMid',
+  courseLevelPro: 'courseLevelPro',
+  courseLevelAll: 'courseLevelAll',
+  searchResultsTitle: 'searchResultsTitle'
 };
 
 export default keys;
