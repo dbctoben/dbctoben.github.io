@@ -2,7 +2,7 @@ import React from 'react';
 import { AppLogoButtonProps } from '../../@types/types';
 
 const AppLogoButton: React.FC<AppLogoButtonProps> = ({ minified }) => {
-  const src = 'sylaboo-logo.png';
+  const src = 'syllabu-logo.png';
   const height = '70px';
   const width = '77px';
   return (

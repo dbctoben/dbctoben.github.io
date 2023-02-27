@@ -1,5 +1,5 @@
 import { Autocomplete, TextField, Box } from '@mui/material';
-import React, { createRef, useEffect } from 'react';
+import React, { createRef, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import mockSearchData from '../../consts/mockSearchData';
 import i18n from '../../i18n/config';
@@ -12,6 +12,7 @@ type inputRefCurrent = {
 const SearchInput: React.FC = () => {
   const { t } = useTranslation();
   const inputRef = createRef();
+  const [inputValue] = useState('');
 
   useEffect(() => {
     if (inputRef) {
@@ -23,6 +24,7 @@ const SearchInput: React.FC = () => {
   return (
     <Autocomplete
       freeSolo
+      value={inputValue}
       id='db-search-input'
       disableClearable
       sx={{ flexGrow: 1, display: 'flex', alignItems: 'center', margin: '0 20px' }}
