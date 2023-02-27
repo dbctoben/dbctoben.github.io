@@ -3,7 +3,7 @@ import { AppLogoButtonProps } from '../../@types/types';
 
 const AppLogoButton: React.FC<AppLogoButtonProps> = ({ minified }) => {
   const src = 'sylaboo.png';
-  const height = '75px';
+  const height = '70px';
   const width = '77px';
   return (
     <a href='/'>
