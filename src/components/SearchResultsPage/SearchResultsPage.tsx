@@ -1,13 +1,20 @@
-import { Box } from '@mui/material';
-import React from 'react';
+import { Box, IconButton } from '@mui/material';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { SearchResultsPageProps } from '../../@types/types';
+import { useSearchParams } from 'react-router-dom';
 import keys from '../../i18n/keys';
-import DropDownMenu from '../DropDownMenu/DropDownMenu';
 import SortButtonGroup from '../SortButtonGroup/SortButtonGroup';
 
-const SearchResultsPage: React.FC<SearchResultsPageProps> = ({ results, term }) => {
+const SearchResultsPage: React.FC = () => {
   const { t } = useTranslation();
+  const [filtersDisplayed, setFiltersDisplayed] = useState(true);
+  const [params] = useSearchParams();
+  const [results, setResults] = useState([]);
+
+  const term = params.get('q');
+
+  const toggleFilters = () => setFiltersDisplayed(!filtersDisplayed);
+
   return (
     <Box>
       <section>
@@ -15,7 +22,9 @@ const SearchResultsPage: React.FC<SearchResultsPageProps> = ({ results, term }) 
           {results.length} {t(keys.searchResultsTitle)} "{term}"
         </Box>
         <Box>
-          <button></button>
+          <IconButton sx={{ display: { md: 'none', xs: 'flex' } }} onClick={toggleFilters}>
+            {filtersDisplayed ? t(keys.hideFilters) : t(keys.showFilters)}
+          </IconButton>
           <SortButtonGroup></SortButtonGroup>
         </Box>
       </section>

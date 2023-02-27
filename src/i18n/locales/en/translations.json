@@ -20,5 +20,7 @@
     "mostRelevant": "Most Relevant",
     "mostReviewed": "Most Reviewed",
     "highestRated": "Highest Rated",
-    "newest": "Newest"
+    "newest": "Newest",
+    "hideFilters": "Hide Filters",
+    "showFilters": "Show Filters"
 }

@@ -20,7 +20,9 @@ const keys = {
   mostRelevant: 'mostRelevant',
   mostReviewed: 'mostReviewed',
   highestRated: 'highestRated',
-  newest: 'newest'
+  newest: 'newest',
+  hideFilters: 'hideFilters',
+  showFilters: 'showFilters'
 };
 
 export default keys;

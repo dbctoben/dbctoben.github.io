@@ -9,11 +9,13 @@ import ErrorPage from './components/ErrorPage/ErrorPage';
 import { ThemeProvider } from '@mui/material';
 import { noTextTransformButton } from './services/themes';
 import { useTranslation } from 'react-i18next';
+import SearchResultsPage from './components/SearchResultsPage/SearchResultsPage';
 
 function App() {
   const links = [
     { to: '/', label: 'Home' },
     { to: 'about', label: 'About' },
+    { to: 'search', label: 'Search' },
     { to: 'error', label: 'Error' },
   ];
 
@@ -28,6 +30,7 @@ function App() {
         <Routes>
           <Route path='/' index element={<HomePage />} />
           <Route path='about' element={<AboutPage />} />
+          <Route path='search' element={<SearchResultsPage />} />
           <Route path='*' element={<ErrorPage />} />
         </Routes>
         <Footer />

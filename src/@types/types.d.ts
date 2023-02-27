@@ -89,5 +89,3 @@ export type SearchResult = {
   numOfTests?: number;
   authorizedCertificate?: boolean;
 };
-
-export type SearchResultsPageProps = { results: Array<SearchResult>, term: string };
