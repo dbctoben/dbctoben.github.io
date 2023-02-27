@@ -25,14 +25,18 @@ const HomePage: React.FC = () => {
             flexDirection: 'column',
           }}
         >
-          <Typography variant='h3' fontFamily='serif' fontWeight='bold'>{t(keys.homePageGreetingTitle)}</Typography>
-          <Typography variant='h5'>{t(keys.homePageGreetingContent)}</Typography>
+          <Typography variant='h3' fontFamily='serif' fontWeight='bold'>
+            {t(keys.homePageGreetingTitle)}
+          </Typography>
+          <Typography sx={{ mt: '40px' }} variant='h5'>
+            {t(keys.homePageGreetingContent)}
+          </Typography>
           <Box sx={{ display: 'flex', flexGrow: 1, justifyContent: 'center' }}>
             <Button sx={{ alignSelf: 'flex-end' }}>{t(keys.homePageButton)}</Button>
           </Box>
         </Box>
       </section>
-      <section>This is the second section</section>
+      <section>This is the second section - we will present videos of VIPs recommending courses</section>
     </Box>
   );
 };

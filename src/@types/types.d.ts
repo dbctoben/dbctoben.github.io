@@ -1,4 +1,4 @@
-import { MutableRefObject } from "react";
+import React, { MutableRefObject } from "react";
 
 export type Id = {
   id: string;
@@ -62,8 +62,7 @@ export type CategoryPopoverProps = {
 
 export type CategoriesProps = {
   categories: Array<Category>;
-  categoriesDisplayed: boolean;
-  portalRef: MutableRefObject<null>;
-  closeCategories: () => void;
-  toggleCategories: (event: React.MouseEvent<HTMLElement>) => void;
+  anchorElCategories: HTMLElement | null;
+  handleOpenCategories: (event: React.MouseEvent<HTMLElement>) => void;
+  handleCloseCategories: () => void;
 };

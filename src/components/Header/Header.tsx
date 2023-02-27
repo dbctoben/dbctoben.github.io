@@ -41,9 +41,9 @@ const Header: React.FC<HeaderProps> = () => {
   }, []);
 
   const [categories, setCategories] = useState([] as Array<Category>);
-  const [categoriesDisplayed, setCategoriesDisplayed] = useState(false);
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
+  const [anchorElCategories, setAnchorElCategories] = useState<null | HTMLElement>(null);
 
   const headerRef = useRef(null);
 
@@ -55,6 +55,12 @@ const Header: React.FC<HeaderProps> = () => {
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
   };
+  const handleOpenCategories = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorElCategories(event.currentTarget);
+  };
+  const handleCloseCategories = () => {
+    setAnchorElNav(null);
+  };
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
@@ -63,24 +69,23 @@ const Header: React.FC<HeaderProps> = () => {
   };
 
   return (
-    <AppBar color='transparent' position='static' ref={headerRef}>
+    <AppBar color='transparent' position='static'>
       <ThemeProvider theme={noTextTransformButton}>
-        <Container maxWidth='xl'>
+        <Container maxWidth={false}>
           <Toolbar disableGutters sx={{ height: 80 }}>
             {/* Displays on large screen */}
             <Icon sx={{ display: { xs: 'none', md: 'flex' }, width: 'auto', height: 'auto' }}>
               <AppLogoButton />
             </Icon>
-
+            {/* <div id='portal-ref-dummy' ref={headerRef}></div> */}
             <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, height: '100%' }}>
+              <SearchInput />
               <Categories
                 categories={categories}
-                categoriesDisplayed={categoriesDisplayed}
-                portalRef={headerRef}
-                closeCategories={() => setCategoriesDisplayed(false)}
-                toggleCategories={() => setCategoriesDisplayed((prev) => !prev)}
+                anchorElCategories={anchorElCategories}
+                handleOpenCategories={handleOpenCategories}
+                handleCloseCategories={handleCloseCategories}
               />
-              <SearchInput />
               <Box sx={{ flexDirection: 'row', display: 'flex', justifyContent: 'end', flexGrow: 1 }}>
                 <Box sx={{ display: 'flex', mr: '40px' }}>
                   <Button>{t(keys.createACourse)}</Button>
@@ -100,54 +105,57 @@ const Header: React.FC<HeaderProps> = () => {
             {/* ------------------------- */}
 
             {/* Displays on small screen */}
-            <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-              <IconButton
-                size='large'
-                aria-label='account of current user'
-                aria-controls='menu-appbar'
-                aria-haspopup='true'
-                onClick={handleOpenNavMenu}
-                color='inherit'
-              >
-                <MenuIcon />
-              </IconButton>
-              <Menu
-                id='menu-appbar'
-                anchorEl={anchorElNav}
-                anchorOrigin={{
-                  vertical: 'bottom',
-                  horizontal: 'left',
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'left',
-                }}
-                open={Boolean(anchorElNav)}
-                onClose={handleCloseNavMenu}
+            <Box sx={{ display: { xs: 'flex', md: 'none' }, flexGrow: 1 }}>
+              <Icon
                 sx={{
-                  display: { xs: 'block', md: 'none' },
+                  alignSelf: 'center',
+                  display: { xs: 'flex', md: 'none' },
+                  width: 'auto',
+                  height: 'auto',
                 }}
               >
-                {pages.map((page) => (
-                  <MenuItem key={page} onClick={handleCloseNavMenu}>
-                    <Typography textAlign='center'>{page}</Typography>
-                  </MenuItem>
-                ))}
-              </Menu>
+                <AppLogoButton minified={true} />
+              </Icon>
+              <Box sx={{ flexGrow: 1 }}>
+                <SearchInput />
+              </Box>
+              <Box sx={{ alignSelf: 'flex-end' }}>
+                <IconButton
+                  size='large'
+                  aria-label='account of current user'
+                  aria-controls='menu-appbar'
+                  aria-haspopup='true'
+                  onClick={handleOpenNavMenu}
+                  color='inherit'
+                >
+                  <MenuIcon />
+                </IconButton>
+                <Menu
+                  id='menu-appbar'
+                  anchorEl={anchorElNav}
+                  anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'left',
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'left',
+                  }}
+                  open={Boolean(anchorElNav)}
+                  onClose={handleCloseNavMenu}
+                  sx={{
+                    display: { xs: 'block', md: 'none' },
+                  }}
+                >
+                  {pages.map((page) => (
+                    <MenuItem key={page} onClick={handleCloseNavMenu}>
+                      <Typography textAlign='center'>{page}</Typography>
+                    </MenuItem>
+                  ))}
+                </Menu>
+              </Box>
             </Box>
-
-            <Icon
-              sx={{
-                flexGrow: 1,
-                alignSelf: 'center',
-                display: { xs: 'flex', md: 'none' },
-                width: 'auto',
-                height: 'auto',
-              }}
-            >
-              <AppLogoButton minified={true} />
-            </Icon>
             {/* ------------------------- */}
           </Toolbar>
         </Container>

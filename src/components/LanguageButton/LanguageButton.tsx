@@ -15,7 +15,7 @@ const LanguageButton: React.FC = () => {
   };
 
   return (
-    <Box sx={{ flexGrow: 0, alignSelf: 'center', mr: '20px' }}>
+    <Box sx={{ flexGrow: 0, alignSelf: 'center', mr: '10px', ml: '10px' }}>
       <Tooltip title={t(keys.changeLanguage)}>
         <IconButton
           sx={{ alignSelf: 'center' }}

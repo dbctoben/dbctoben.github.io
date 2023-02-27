@@ -1,6 +1,6 @@
 const keys = {
   categories: 'categories',
-  search: 'Search something...',
+  search: 'search',
   teach: 'teach',
   login: 'login',
   signUp: 'signUp',
