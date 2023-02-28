@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { LinkProps } from 'react-router-dom';
 import { mockCategoriesUrl } from '../../consts/consts';
 import fetchData from '../../services/fetchData';
@@ -33,7 +33,6 @@ type HeaderProps = {
 const Header: React.FC<HeaderProps> = () => {
   useEffect(() => {
     fetchData(mockCategoriesUrl).then((data) => {
-      console.log('DATA', data);
       if (data.categories) {
         setCategories(data.categories);
       }
@@ -44,8 +43,6 @@ const Header: React.FC<HeaderProps> = () => {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
   const [anchorElCategories, setAnchorElCategories] = useState<null | HTMLElement>(null);
-
-  const headerRef = useRef(null);
 
   const { t } = useTranslation();
 

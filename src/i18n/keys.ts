@@ -12,7 +12,7 @@ const keys = {
   homePageButton: 'homePageButton',
   changeLanguage: 'changeLanguage',
   loginButtonTooltip: 'loginButtonTooltip',
-  courseLevelEntry: 'courseLevelEntry',
+  courseLevelBeginner: 'courseLevelBeginner',
   courseLevelMid: 'courseLevelMid',
   courseLevelPro: 'courseLevelPro',
   courseLevelAll: 'courseLevelAll',
@@ -22,7 +22,12 @@ const keys = {
   highestRated: 'highestRated',
   newest: 'newest',
   hideFilters: 'hideFilters',
-  showFilters: 'showFilters'
+  showFilters: 'showFilters',
+  ratedByPrefix: 'ratedByPrefix',
+  ratedBySuffix: 'ratedBySuffix',
+  searchResultTime: 'searchResultTime',
+  searchResultLectures: 'searchResultLectures',
+  searchResultTests: 'searchResultTests'
 };
 
 export default keys;

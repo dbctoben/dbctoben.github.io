@@ -1,4 +1,4 @@
-import React, { MutableRefObject } from "react";
+import React, { MutableRefObject } from 'react';
 
 export type Id = {
   id: string;
@@ -67,25 +67,30 @@ export type CategoriesProps = {
   handleCloseCategories: () => void;
 };
 
-
 export enum COURSE_LEVEL {
-  ENTRY,
+  BEGINNER,
   MID,
   PRO,
   ALL,
 }
 
-export type SearchResult = {
+export type SearchResultProps = {
+  id: string;
   imageSrc: string;
+  imageAlt: string;
   title: string;
   description: string;
   author: string;
   rating: number;
   ratedBy: number;
-  totalHours: number;
-  numOfVideos: number;
+  totalTime: number;
+  numOfLectures: number;
   level: COURSE_LEVEL;
   numOfExcercises?: number;
   numOfTests?: number;
   authorizedCertificate?: boolean;
 };
+
+export type SearchResultsData = {
+  results: Array<SearchResultProps>;
+}

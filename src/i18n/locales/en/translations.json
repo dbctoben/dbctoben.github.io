@@ -12,9 +12,9 @@
     "homePageButton": "Get started",
     "changeLanguage": "Change Language",
     "loginButtonTooltip": "User Settings",
-    "courseLevelEntry": "Entry Level",
-    "courseLevelMid": "Mid Level",
-    "courseLevelPro": "Pro Level",
+    "courseLevelBeginner": "Beginner",
+    "courseLevelMid": "Mid",
+    "courseLevelPro": "Pro",
     "courseLevelAll": "All Levels",
     "searchResultsTitle": "results found for",
     "mostRelevant": "Most Relevant",
@@ -22,5 +22,10 @@
     "highestRated": "Highest Rated",
     "newest": "Newest",
     "hideFilters": "Hide Filters",
-    "showFilters": "Show Filters"
+    "showFilters": "Show Filters",
+    "ratedByPrefix": "Rated by",
+    "ratedBySuffix": "users",
+    "searchResultTime": "hours",
+    "searchResultLectures": "lectures",
+    "searchResultTests": "tests"
 }

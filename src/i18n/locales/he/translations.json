@@ -12,9 +12,9 @@
     "homePageButton": "בואו נתחיל",
     "changeLanguage": "לשנות שפה",
     "loginButtonTooltip": "הגדרות משתמש",
-    "courseLevelEntry": "רמת כניסה",
-    "courseLevelMid": "רמה בינונית",
-    "courseLevelPro": "רמה מקצוענית",
+    "courseLevelBeginner": "מתחיל",
+    "courseLevelMid": "בינוני",
+    "courseLevelPro": "מקצוען",
     "courseLevelAll": "כל הרמות",
     "searchResultsTitle": "תוצאות נמצאו עבור",
     "mostRelevant": "הכי רלוונטי",
@@ -22,5 +22,10 @@
     "highestRated": "דירוג הכי גבוה",
     "newest": "הכי חדש",
     "hideFilters": "הסתר פילטרים",
-    "showFilters": "הצג פילטרים"
+    "showFilters": "הצג פילטרים",
+    "ratedByPrefix": "דורג ע״י",
+    "ratedBySuffix": "משתמשים",
+    "searchResultTime": "שעות",
+    "searchResultLectures": "שיעורים",
+    "searchResultTests": "מבחנים"
 }

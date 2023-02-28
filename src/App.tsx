@@ -10,6 +10,7 @@ import { ThemeProvider } from '@mui/material';
 import { noTextTransformButton } from './services/themes';
 import { useTranslation } from 'react-i18next';
 import SearchResultsPage from './components/SearchResultsPage/SearchResultsPage';
+import { QueryClient, QueryClientProvider } from 'react-query';
 
 function App() {
   const links = [
@@ -19,22 +20,26 @@ function App() {
     { to: 'error', label: 'Error' },
   ];
 
+  const queryClient = new QueryClient();
+
   const { i18n } = useTranslation();
 
   document.body.dir = i18n.dir();
 
   return (
     <ThemeProvider theme={noTextTransformButton}>
-      <BrowserRouter>
-        <Header links={links} />
-        <Routes>
-          <Route path='/' index element={<HomePage />} />
-          <Route path='about' element={<AboutPage />} />
-          <Route path='search' element={<SearchResultsPage />} />
-          <Route path='*' element={<ErrorPage />} />
-        </Routes>
-        <Footer />
-      </BrowserRouter>
+      <QueryClientProvider client={queryClient}>
+        <BrowserRouter>
+          <Header links={links} />
+          <Routes>
+            <Route path='/' index element={<HomePage />} />
+            <Route path='about' element={<AboutPage />} />
+            <Route path='search' element={<SearchResultsPage />} />
+            <Route path='*' element={<ErrorPage />} />
+          </Routes>
+          <Footer />
+        </BrowserRouter>
+      </QueryClientProvider>
     </ThemeProvider>
   );
 }
