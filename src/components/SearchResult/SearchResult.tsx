@@ -3,6 +3,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { SearchResultProps } from '../../@types/types';
 import keys from '../../i18n/keys';
+import { getCurrencyIconClass } from '../../services/currencyIcon';
 import SearchResultRating from '../SearchResultRating/SearchResultRating';
 
 const SearchResult: React.FC<SearchResultProps> = ({
@@ -19,20 +20,23 @@ const SearchResult: React.FC<SearchResultProps> = ({
   numOfExcercises,
   numOfTests,
   authorizedCertificate,
+  price,
+  salePrice,
+  currency,
 }) => {
   const { t } = useTranslation();
   return (
-    <Box>
-      <Box>
-        <img src={imageSrc} alt={imageAlt} />
+    <Box sx={{ display: 'flex', flexDirection: 'row' }}>
+      <Box sx={{ mr: '10px' }}>
+        <img src={imageSrc} alt={imageAlt} width='250px' height='150px' />
       </Box>
-      <Box>
-        <Typography></Typography>
-        <Typography></Typography>
-        <Typography></Typography>
-        <Box>
+      <Box sx={{ maxWidth: '50%' }}>
+        <Typography>{title}</Typography>
+        <Typography>{description}</Typography>
+        <Typography>{author}</Typography>
+        <Box sx={{ maxWidth: '50%' }}>
           <SearchResultRating rating={rating} ratedBy={ratedBy} />
-          <Box>
+          <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
             <Typography>
               {totalTime} {t(keys.searchResultTime)}
             </Typography>
@@ -48,7 +52,17 @@ const SearchResult: React.FC<SearchResultProps> = ({
           </Box>
         </Box>
       </Box>
-      <Box></Box>
+      <Box>
+        <Box>
+          <Typography>
+            {salePrice} <i className={getCurrencyIconClass(currency)}></i>
+          </Typography>
+          <Typography>
+            {price} <i className={getCurrencyIconClass(currency)}></i>
+          </Typography>
+        </Box>
+        <Box></Box>
+      </Box>
     </Box>
   );
 };

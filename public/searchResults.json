@@ -2,7 +2,7 @@
     "results": [
         {
             "id": "sr-0",
-            "imageSrc": "",
+            "imageSrc": "teacher.jpg",
             "imageAlt": "",
             "title": "First",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vel vehicula lectus. Fusce ut mi a magna congue congue. Vestibulum ultrices commodo faucibus.",
@@ -14,11 +14,14 @@
             "level": "ALL",
             "numOfExcercises": 12,
             "numOfTests": 3,
-            "authorizedCertificate": true
+            "authorizedCertificate": true,
+            "price": 59.90,
+            "salePrice": 19.90,
+            "currency": "NIS"
         },
         {
             "id": "sr-1",
-            "imageSrc": "",
+            "imageSrc": "teacher.jpg",
             "imageAlt": "",
             "title": "Second",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vel vehicula lectus. Fusce ut mi a magna congue congue. Vestibulum ultrices commodo faucibus.",
@@ -30,11 +33,14 @@
             "level": "PRO",
             "numOfExcercises": 12,
             "numOfTests": 3,
-            "authorizedCertificate": true
+            "authorizedCertificate": true,
+            "price": 59.90,
+            "salePrice": 19.90,
+            "currency": "NIS"
         },
         {
             "id": "sr-2",
-            "imageSrc": "",
+            "imageSrc": "teacher.jpg",
             "imageAlt": "",
             "title": "Third",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vel vehicula lectus. Fusce ut mi a magna congue congue. Vestibulum ultrices commodo faucibus.",
@@ -46,11 +52,14 @@
             "level": "PRO",
             "numOfExcercises": 12,
             "numOfTests": 3,
-            "authorizedCertificate": true
+            "authorizedCertificate": true,
+            "price": 59.90,
+            "salePrice": 19.90,
+            "currency": "NIS"
         },
         {
             "id": "sr-3",
-            "imageSrc": "",
+            "imageSrc": "teacher.jpg",
             "imageAlt": "",
             "title": "Fourth",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vel vehicula lectus. Fusce ut mi a magna congue congue. Vestibulum ultrices commodo faucibus.",
@@ -62,11 +71,14 @@
             "level": "MID",
             "numOfExcercises": 12,
             "numOfTests": 3,
-            "authorizedCertificate": true
+            "authorizedCertificate": true,
+            "price": 59.90,
+            "salePrice": 19.90,
+            "currency": "NIS"
         },
         {
             "id": "sr-4",
-            "imageSrc": "",
+            "imageSrc": "teacher.jpg",
             "imageAlt": "",
             "title": "Fifth",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vel vehicula lectus. Fusce ut mi a magna congue congue. Vestibulum ultrices commodo faucibus.",
@@ -78,11 +90,14 @@
             "level": "BEGINNER",
             "numOfExcercises": 12,
             "numOfTests": 3,
-            "authorizedCertificate": true
+            "authorizedCertificate": true,
+            "price": 59.90,
+            "salePrice": 19.90,
+            "currency": "NIS"
         },
         {
             "id": "sr-5",
-            "imageSrc": "",
+            "imageSrc": "teacher.jpg",
             "imageAlt": "",
             "title": "Sixth",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vel vehicula lectus. Fusce ut mi a magna congue congue. Vestibulum ultrices commodo faucibus.",
@@ -94,7 +109,10 @@
             "level": "ALL",
             "numOfExcercises": 9,
             "numOfTests": 2,
-            "authorizedCertificate": true
+            "authorizedCertificate": true,
+            "price": 59.90,
+            "salePrice": 19.90,
+            "currency": "NIS"
         }
     ]
 }

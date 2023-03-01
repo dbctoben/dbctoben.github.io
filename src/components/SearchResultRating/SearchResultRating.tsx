@@ -9,8 +9,7 @@ type SearchResultRatingProps = Pick<SearchResultProps, 'rating' | 'ratedBy'>;
 const SearchResultRating: React.FC<SearchResultRatingProps> = ({ rating, ratedBy }) => {
   const { t } = useTranslation();
   return (
-    <Box>
-      <Typography>{rating}</Typography>
+    <Box sx={{ display: 'flex', flexDirection: 'row' }}>
       <Rating name='searchResultRating' defaultValue={rating} precision={0.5} readOnly />
       <Typography>
         {t(keys.ratedByPrefix)} {ratedBy} {t(keys.ratedBySuffix)}

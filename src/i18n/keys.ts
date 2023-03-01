@@ -21,6 +21,7 @@ const keys = {
   mostReviewed: 'mostReviewed',
   highestRated: 'highestRated',
   newest: 'newest',
+  filters: 'filters',
   hideFilters: 'hideFilters',
   showFilters: 'showFilters',
   ratedByPrefix: 'ratedByPrefix',

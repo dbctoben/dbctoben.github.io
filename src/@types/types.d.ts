@@ -89,7 +89,12 @@ export type SearchResultProps = {
   numOfExcercises?: number;
   numOfTests?: number;
   authorizedCertificate?: boolean;
+  price: number;
+  salePrice?: number;
+  currency: Currency;
 };
+
+export type Currency = 'NIS' | 'USD';
 
 export type SearchResultsData = {
   results: Array<SearchResultProps>;

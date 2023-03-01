@@ -45,7 +45,8 @@ const SearchResultsPage: React.FC = () => {
         </section>
         <section>
           <Box sx={{ display: 'flex', flexDirection: 'row' }}>
-            <Box>Filters</Box>
+            <Box>
+              <div>{t(keys.filters)}</div></Box>
             <Box>
               {results.map((result) => (
                 <SearchResult key={result.id} {...result} />
