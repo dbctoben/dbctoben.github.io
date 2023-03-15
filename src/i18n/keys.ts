@@ -1,4 +1,4 @@
-const keys = {
+const keys: Record<string, string> = {
   categories: 'categories',
   search: 'search',
   teach: 'teach',

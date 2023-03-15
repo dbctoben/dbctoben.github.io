@@ -31,19 +31,16 @@ const SearchResultsPage: React.FC = () => {
         <LinearProgress />
       </Box>
     ) : (
-      <Box>
-        <section>
+      <Box className='search-results-page-main'>
+        <section className='search-results-page-header'>
           <Box>
             {results.length} {t(keys.searchResultsTitle)} "{term}"
           </Box>
           <Box>
-            <IconButton sx={{ display: { md: 'none', xs: 'flex' } }} onClick={toggleFilters}>
-              {filtersDisplayed ? t(keys.hideFilters) : t(keys.showFilters)}
-            </IconButton>
             <SortButtonGroup></SortButtonGroup>
           </Box>
         </section>
-        <section>
+        <section className='search-results-page-results-list'>
           <Box sx={{ display: 'flex', flexDirection: 'row' }}>
             <Box>
               <div>{t(keys.filters)}</div></Box>

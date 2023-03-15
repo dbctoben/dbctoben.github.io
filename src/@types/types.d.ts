@@ -99,3 +99,8 @@ export type Currency = 'NIS' | 'USD';
 export type SearchResultsData = {
   results: Array<SearchResultProps>;
 }
+
+export type BasicFilterProps = {
+    title: string;
+    children: React.ReactNode;
+}
