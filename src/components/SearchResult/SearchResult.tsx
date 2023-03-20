@@ -26,7 +26,7 @@ const SearchResult: React.FC<SearchResultProps> = ({
 }) => {
   const { t } = useTranslation();
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'row' }}>
+    <Box className='search-result' sx={{ display: 'flex', flexDirection: 'row' }}>
       <Box sx={{ mr: '10px' }}>
         <img src={imageSrc} alt={imageAlt} width='250px' height='150px' />
       </Box>
@@ -34,7 +34,7 @@ const SearchResult: React.FC<SearchResultProps> = ({
         <Typography>{title}</Typography>
         <Typography>{description}</Typography>
         <Typography>{author}</Typography>
-        <Box sx={{ maxWidth: '50%' }}>
+        <Box>
           <SearchResultRating rating={rating} ratedBy={ratedBy} />
           <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
             <Typography>

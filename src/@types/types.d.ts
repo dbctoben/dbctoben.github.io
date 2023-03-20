@@ -103,4 +103,23 @@ export type SearchResultsData = {
 export type BasicFilterProps = {
     title: string;
     children: React.ReactNode;
+    expanded?: boolean;
 }
+
+export type RatingsData = {
+  level: number;
+  numOfVotes: number;
+};
+
+export type RatingsFilterProps = {
+  ratings?: Array<RatingsData>;
+};
+
+export type RatingControl = {
+  minimum: number;
+};
+
+export type SingleRatingProps = {
+  rating: RatingControl;
+};
+

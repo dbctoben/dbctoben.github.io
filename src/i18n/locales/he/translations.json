@@ -28,5 +28,7 @@
     "ratedBySuffix": "משתמשים",
     "searchResultTime": "שעות",
     "searchResultLectures": "שיעורים",
-    "searchResultTests": "מבחנים"
+    "searchResultTests": "מבחנים",
+    "ratingsFilterTitle": "דירוג",
+    "atLeast": "לפחות "
 }

@@ -8,6 +8,7 @@ import { useQuery } from 'react-query';
 import fetchData from '../../services/fetchData';
 import SearchResult from '../SearchResult/SearchResult';
 import { parseResults } from '../../services/parseData';
+import SearchResultsFilters from '../SearchResultsFilters/SearchResultsFilters';
 
 const SearchResultsPage: React.FC = () => {
   const { t } = useTranslation();
@@ -40,11 +41,12 @@ const SearchResultsPage: React.FC = () => {
             <SortButtonGroup></SortButtonGroup>
           </Box>
         </section>
-        <section className='search-results-page-results-list'>
+        <section className='search-results-page-body'>
           <Box sx={{ display: 'flex', flexDirection: 'row' }}>
             <Box>
-              <div>{t(keys.filters)}</div></Box>
-            <Box>
+              <SearchResultsFilters />
+            </Box>
+            <Box className='search-results-page-list'>
               {results.map((result) => (
                 <SearchResult key={result.id} {...result} />
               ))}

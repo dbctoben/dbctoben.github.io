@@ -28,5 +28,7 @@
     "ratedBySuffix": "users",
     "searchResultTime": "hours",
     "searchResultLectures": "lectures",
-    "searchResultTests": "tests"
+    "searchResultTests": "tests",
+    "ratingsFilterTitle": "Rating",
+    "atLeast": "At least "
 }

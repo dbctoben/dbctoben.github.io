@@ -1,0 +1,7 @@
+@use "src/global.scss" as styles;
+
+.search-result {
+    margin: styles.$card-margin;
+    padding: styles.$card-padding;
+    box-shadow: styles.$container-box-shadow;
+}

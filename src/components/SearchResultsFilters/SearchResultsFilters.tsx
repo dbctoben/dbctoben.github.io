@@ -1,12 +1,13 @@
 import { Box } from '@mui/material';
 import React from 'react';
+import RatingsFilter from './RatingsFilter';
 
-type SearchResultsFiltersProps = {};
-
-const SearchResultsFilters: React.FC<SearchResultsFiltersProps> = ({}) => {
-  return <Box>
-    
-  </Box>;
+const SearchResultsFilters: React.FC = () => {
+  return (
+    <Box className='filters-container'>
+      <RatingsFilter />
+    </Box>
+  );
 };
 
 export default SearchResultsFilters;

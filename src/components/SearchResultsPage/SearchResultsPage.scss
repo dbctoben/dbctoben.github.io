@@ -8,7 +8,13 @@
 
 }
 
-.search-results-page-results-list {
+.search-results-page-list {
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+}
+
+.search-results-page-body {
     align-self: center;
     justify-content: space-between;
     padding: 10px;

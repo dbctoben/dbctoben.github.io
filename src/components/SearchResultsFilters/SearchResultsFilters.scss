@@ -1,0 +1,14 @@
+@use "src/global.scss" as styles;
+
+.filters-container {
+    margin: styles.$card-margin;
+}
+
+.single-rating-control {
+    display: flex;
+    flex-direction: row;
+}
+
+.single-rating-stars {
+    align-items: center;
+}

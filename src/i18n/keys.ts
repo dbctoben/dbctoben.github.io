@@ -28,7 +28,9 @@ const keys: Record<string, string> = {
   ratedBySuffix: 'ratedBySuffix',
   searchResultTime: 'searchResultTime',
   searchResultLectures: 'searchResultLectures',
-  searchResultTests: 'searchResultTests'
+  searchResultTests: 'searchResultTests',
+  ratingsFilterTitle: 'ratingsFilterTitle',
+  atLeast: 'atLeast'
 };
 
 export default keys;
