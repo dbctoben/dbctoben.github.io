@@ -83,7 +83,7 @@ export type SearchResultProps = {
   author: string;
   rating: number;
   ratedBy: number;
-  totalTime: number;
+  totalHours: number;
   numOfLectures: number;
   level: COURSE_LEVEL;
   numOfExcercises?: number;

@@ -14,7 +14,7 @@ const SearchResult: React.FC<SearchResultProps> = ({
   author,
   rating,
   ratedBy,
-  totalTime,
+  totalHours,
   numOfLectures,
   level,
   numOfExcercises,
@@ -38,7 +38,7 @@ const SearchResult: React.FC<SearchResultProps> = ({
           <SearchResultRating rating={rating} ratedBy={ratedBy} />
           <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
             <Typography>
-              {totalTime} {t(keys.searchResultTime)}
+              {totalHours} {t(keys.searchResultTime)}
             </Typography>
             |
             <Typography>
